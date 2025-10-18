@@ -1,306 +1,609 @@
-# ✈️ FlightHub - Modern Flight Booking Platform# 🛫 FlightHub - Flight Booking Platform
+# ✈️ FlightHub - Flight Booking Platform# ✈️ FlightHub - Modern Flight Booking Platform# 🛫 FlightHub - Flight Booking Platform
 
 
 
-<div align="center">[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
-
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green.svg)](https://fastapi.tiangolo.com/)
-
-![FlightHub Banner](https://img.shields.io/badge/FlightHub-Production_Ready-0066cc?style=for-the-badge&logo=airplane&logoColor=white)[![Django](https://img.shields.io/badge/Django-4.2-darkgreen.svg)](https://www.djangoproject.com/)
-
-[![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://www.docker.com/)
-
-**Enterprise-grade flight booking platform built with microservices architecture**[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<div align="center">
 
 
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)<div align="center">
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)<div align="center">[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)  <h3>🎯 Production-Ready | 🚀 Microservices | ⚡ Async | 🐳 Docker</h3>
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi&logoColor=white)
 
-[![Django](https://img.shields.io/badge/Django-4.2-092e20?logo=django&logoColor=white)](https://www.djangoproject.com/)</div>
+![Django](https://img.shields.io/badge/Django-4.2-092e20?logo=django&logoColor=white)[![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green.svg)](https://fastapi.tiangolo.com/)
 
-[![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=black)](https://reactjs.org/)
+![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=black)
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)## ⚡ Quick Start (60 секунд)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?logo=typescript&logoColor=white)![FlightHub Banner](https://img.shields.io/badge/FlightHub-Production_Ready-0066cc?style=for-the-badge&logo=airplane&logoColor=white)[![Django](https://img.shields.io/badge/Django-4.2-darkgreen.svg)](https://www.djangoproject.com/)
 
-[![Docker](https://img.shields.io/badge/Docker-Compose-2496ed?logo=docker&logoColor=white)](https://www.docker.com/)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ed?logo=docker&logoColor=white)
 
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)```powershell
-
-# 1. Клонировать проект
-
-[Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Tech Stack](#-tech-stack) • [API Docs](#-api-documentation)git clone https://github.com/your-username/flighthub.git
-
-cd flighthub
-
-</div>
-
-# 2. Запустить все сервисы
-
----docker-compose up -d
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)[![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://www.docker.com/)
 
 
 
-## 📋 Overview# 3. Создать тестовые данные
+**Modern microservices flight booking platform with React frontend****Enterprise-grade flight booking platform built with microservices architecture**[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-docker exec flighthub-user python manage.py seed_users
+
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Tech Stack](#-tech-stack) • [API Docs](#-api-documentation)
+
+
+
+</div>[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)<div align="center">
+
+
+
+---[![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)  <h3>🎯 Production-Ready | 🚀 Microservices | ⚡ Async | 🐳 Docker</h3>
+
+
+
+## 📋 About[![Django](https://img.shields.io/badge/Django-4.2-092e20?logo=django&logoColor=white)](https://www.djangoproject.com/)</div>
+
+
+
+FlightHub is a **production-ready flight booking platform** showcasing modern microservices architecture, event-driven design, and full-stack development best practices.[![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=black)](https://reactjs.org/)
+
+
+
+### 🎯 Key Features[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)## ⚡ Quick Start (60 секунд)
+
+
+
+- **6 Microservices** - API Gateway, User, Flight Search, Booking, Payment, Notification[![Docker](https://img.shields.io/badge/Docker-Compose-2496ed?logo=docker&logoColor=white)](https://www.docker.com/)
+
+- **Event-Driven Architecture** - RabbitMQ for async communication
+
+- **Modern Frontend** - React 18 + TypeScript + Tailwind CSS[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)```powershell
+
+- **JWT Authentication** - Secure token-based auth with refresh tokens
+
+- **Real-time Search** - 300+ flights with intelligent caching# 1. Клонировать проект
+
+- **Loyalty Program** - Tiered rewards system (Bronze → Platinum)
+
+- **Docker Compose** - One-command deployment[Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Tech Stack](#-tech-stack) • [API Docs](#-api-documentation)git clone https://github.com/your-username/flighthub.git
+
+
+
+---cd flighthub
+
+
+
+## ⚡ Quick Start</div>
+
+
+
+### Prerequisites# 2. Запустить все сервисы
+
+- Docker Desktop
+
+- 4GB RAM minimum---docker-compose up -d
+
+
+
+### Installation
+
+
+
+```bash## 📋 Overview# 3. Создать тестовые данные
+
+# 1. Clone repository
+
+git clone https://github.com/Almas0505/FlightHub.gitdocker exec flighthub-user python manage.py seed_users
+
+cd FlightHub
 
 FlightHub is a **production-ready flight booking platform** demonstrating modern software engineering practices. Built to showcase scalable microservices architecture, event-driven design, and full-stack development capabilities for **travel-tech industry**.docker exec flighthub-flight-search python seed_flights.py
 
+# 2. Start all services (14 containers)
+
+docker-compose up -d
 
 
-### 🎯 Key Highlights# 4. Открыть браузер
+
+# 3. Seed demo data### 🎯 Key Highlights# 4. Открыть браузер
+
+docker exec flighthub-user python manage.py seed_users
+
+docker exec flighthub-flight-search python seed_flights.py# Frontend: http://localhost:3000
+
+
+
+# 4. Open browser- **6 Microservices** with clear separation of concerns# Profile: http://localhost:3000/profile
 
 # Frontend: http://localhost:3000
 
-- **6 Microservices** with clear separation of concerns# Profile: http://localhost:3000/profile
-
-- **Event-Driven** asynchronous communication via RabbitMQ# API Docs: http://localhost:8000/docs
-
-- **JWT Authentication** with secure token management```
-
-- **Real-time Flight Search** across 300+ routes with intelligent caching
-
-- **Loyalty Program** with tiered rewards (Bronze → Platinum)**🔐 Demo Login:**
-
-- **Modern UI** built with React 18, TypeScript, and Tailwind CSS- Email: `demo@flighthub.com`
-
-- **One-Command Deployment** using Docker Compose- Password: `Demo123!`
-
-- **Auto-Generated API Documentation** with interactive Swagger UI- Tier: GOLD (15,000 loyalty points)
-
-
-
----**✨ Что посмотреть:**
-
-1. **Главная** (/) - Hero section с поиском
-
-## ⚡ Quick Start2. **Поиск** (/flights) - Красивые карточки рейсов (317 в базе!)
-
-3. **Профиль** (/profile) - Loyalty программа, редактирование
-
-### Prerequisites4. **API Docs** (:8000/docs) - Swagger UI с Try it out
-
-
-
-- **Docker Desktop** (Windows/Mac) or **Docker Engine + Compose** (Linux)---
-
-- **Minimum:** 4GB RAM, 10GB disk space
-
-- **Recommended:** 8GB RAM, 20GB disk space## 📋 О Проекте
-
-
-
-### Installation (60 seconds)**FlightHub** - это полнофункциональная микросервисная система для бронирования авиабилетов, демонстрирующая современные подходы к разработке backend приложений.
-
-
-
-```bash### ✨ Ключевые Особенности
-
-# Clone the repository
-
-git clone https://github.com/yourusername/flighthub.git- � **Современный Frontend** (React 18 + TypeScript + Tailwind CSS)
-
-cd flighthub- �🏗️ **6 Микросервисов** с четким разделением ответственности
-
-- ⚡ **Асинхронная обработка** для высокой производительности
-
-# Start all services- 🔐 **JWT Аутентификация** и защита от DDoS
-
-docker-compose up -d- 📨 **Event-Driven Architecture** через RabbitMQ
-
-- 🗄️ **Polyglot Persistence**: PostgreSQL + MongoDB + Redis
-
-# Wait for initialization (~30 seconds)- 🐳 **Docker Compose** с health checks
-
-docker-compose ps- 📊 **Структурированное логирование** и мониторинг
-
-- 📚 **Auto-Generated API Docs** (Swagger/ReDoc)
-
-# Seed demo data
-
-docker exec flighthub-user python manage.py seed_users---
-
-docker exec flighthub-flight-search python seed_flights.py
-
-## 🏗️ Архитектура
-
-# Access application
-
-# Frontend: http://localhost:3000```
-
-# API Gateway: http://localhost:8000                    ┌──────────────────────────┐
-
-# API Docs: http://localhost:8000/docs                    │   FRONTEND (React 18)    │
-
-```                    │  Vite + Tailwind CSS     │
-
-                    │      Port 3000           │
-
-### Demo Credentials                    └──────────┬───────────────┘
-
-                               │
-
-| Email | Password | Tier | Points |┌──────────────────────────────▼───────────────────────────────────┐
-
-|-------|----------|------|--------|│                         API GATEWAY (FastAPI)                     │
-
-| **demo@flighthub.com** | **Demo123!** | GOLD | 15,000 |│         JWT Auth | Rate Limiting | Circuit Breaker | CORS        │
-
-| john.doe@example.com | Test123! | PLATINUM | 50,000 |└───────┬─────────────┬──────────────┬──────────────┬──────────────┘
-
-| jane.smith@example.com | Test123! | SILVER | 5,000 |        │             │              │              │
-
-   ┌────▼────┐  ┌────▼────┐   ┌────▼────┐   ┌─────▼─────┐
-
----   │ Flight  │  │ Booking │   │ Payment │   │   User    │
-
-   │ Search  │  │ Service │   │ Service │   │  Service  │
-
-## ✨ Features   │(FastAPI)│  │(Django) │   │(Django) │   │ (Django)  │
-
-   └────┬────┘  └────┬────┘   └────┬────┘   └─────┬─────┘
-
-### 🔐 User Management        │            │              │              │
-
-- Secure JWT-based authentication with refresh tokens        │            └──────┬───────┴──────────────┘
-
-- User profile management with editable information        │                   │
-
-- Multi-tier loyalty program (Bronze → Silver → Gold → Platinum)   ┌────▼────┐       ┌─────▼──────┐       ┌──────────────┐
-
-- Points accumulation and reward tracking   │ MongoDB │       │ PostgreSQL │       │ Notification │
-
-   │ + Redis │       │            │       │   Service    │
-
-### 🔍 Flight Search Engine   └─────────┘       └────────────┘       │  (FastAPI)   │
-
-- Real-time search across multiple routes                                           └──────┬───────┘
-
-- Advanced filtering (price, duration, stops, cabin class)                                                  │
-
-- Smart caching with Redis for sub-second response times                                           ┌──────▼───────┐
-
-- 300+ flights across 11 international routes                                           │   RabbitMQ   │
-
-- Support for one-way and round-trip bookings                                           └──────────────┘
+# API Docs: http://localhost:8000/docs- **Event-Driven** asynchronous communication via RabbitMQ# API Docs: http://localhost:8000/docs
 
 ```
 
-### 🎫 Booking Management
+- **JWT Authentication** with secure token management```
 
-- Multi-passenger booking support---
+### Demo Login
 
-- Automated PNR (Passenger Name Record) generation
+```- **Real-time Flight Search** across 300+ routes with intelligent caching
 
-- Booking status tracking and history## 🚀 Быстрый Старт
+Email: demo@flighthub.com
 
-- Time-based auto-expiration (15 minutes)
+Password: Demo123!- **Loyalty Program** with tiered rewards (Bronze → Platinum)**🔐 Demo Login:**
 
-- Email confirmations and notifications### Требования
+```
 
-- Docker Desktop (Windows/Mac) или Docker + Docker Compose (Linux)
+- **Modern UI** built with React 18, TypeScript, and Tailwind CSS- Email: `demo@flighthub.com`
 
-### 💳 Payment Processing- 8 GB RAM минимум
+---
 
-- Secure payment gateway integration- 10 GB свободного места на диске
+- **One-Command Deployment** using Docker Compose- Password: `Demo123!`
 
-- Multiple payment method support
+## 🏗️ Architecture
 
-- Transaction history and receipts### Запуск за 1 минуту
+- **Auto-Generated API Documentation** with interactive Swagger UI- Tier: GOLD (15,000 loyalty points)
 
-- Automated refund processing
+```
 
-```bash
+                    ┌──────────────┐
 
-### 📧 Notification System# Клонировать репозиторий
+                    │   React 18   │
 
-- Real-time email notificationsgit clone <repository-url>
+                    │   Frontend   │---**✨ Что посмотреть:**
+
+                    └──────┬───────┘
+
+                           │1. **Главная** (/) - Hero section с поиском
+
+                  ┌────────▼────────┐
+
+                  │  API Gateway    │## ⚡ Quick Start2. **Поиск** (/flights) - Красивые карточки рейсов (317 в базе!)
+
+                  │   (FastAPI)     │
+
+                  └────┬─────┬──────┘3. **Профиль** (/profile) - Loyalty программа, редактирование
+
+                       │     │
+
+        ┌──────────────┼─────┼──────────────┐### Prerequisites4. **API Docs** (:8000/docs) - Swagger UI с Try it out
+
+        │              │     │              │
+
+   ┌────▼────┐   ┌────▼──┐ ┌▼─────┐  ┌────▼─────┐
+
+   │ Flight  │   │ User  │ │Booking│  │ Payment  │
+
+   │ Search  │   │Service│ │Service│  │ Service  │- **Docker Desktop** (Windows/Mac) or **Docker Engine + Compose** (Linux)---
+
+   └────┬────┘   └───┬───┘ └───┬───┘  └────┬─────┘
+
+        │            │         │            │- **Minimum:** 4GB RAM, 10GB disk space
+
+        ▼            └────┬────┴────────────┘
+
+   ┌─────────┐           │- **Recommended:** 8GB RAM, 20GB disk space## 📋 О Проекте
+
+   │ MongoDB │      ┌────▼────────┐
+
+   └─────────┘      │ PostgreSQL  │
+
+                    └─────────────┘
+
+                           │### Installation (60 seconds)**FlightHub** - это полнофункциональная микросервисная система для бронирования авиабилетов, демонстрирующая современные подходы к разработке backend приложений.
+
+                    ┌──────▼──────┐
+
+                    │  RabbitMQ   │
+
+                    │ Event Bus   │
+
+                    └─────────────┘```bash### ✨ Ключевые Особенности
+
+```
+
+# Clone the repository
+
+**Event Flow:**
+
+```git clone https://github.com/yourusername/flighthub.git- � **Современный Frontend** (React 18 + TypeScript + Tailwind CSS)
+
+Booking Created → RabbitMQ → [Payment Service, Notification Service]
+
+Payment Success → RabbitMQ → [Booking Service, User Service]cd flighthub- �🏗️ **6 Микросервисов** с четким разделением ответственности
+
+```
+
+- ⚡ **Асинхронная обработка** для высокой производительности
+
+---
+
+# Start all services- 🔐 **JWT Аутентификация** и защита от DDoS
+
+## 🛠️ Tech Stack
+
+docker-compose up -d- 📨 **Event-Driven Architecture** через RabbitMQ
+
+### Backend
+
+| Service | Technology | Database | Purpose |- 🗄️ **Polyglot Persistence**: PostgreSQL + MongoDB + Redis
+
+|---------|-----------|----------|---------|
+
+| **API Gateway** | FastAPI | Redis | Routing, auth, rate limiting |# Wait for initialization (~30 seconds)- 🐳 **Docker Compose** с health checks
+
+| **Flight Search** | FastAPI | MongoDB | Real-time flight search |
+
+| **Booking** | Django | PostgreSQL | Booking management |docker-compose ps- 📊 **Структурированное логирование** и мониторинг
+
+| **Payment** | Django | PostgreSQL | Payment processing |
+
+| **User** | Django | PostgreSQL | Authentication, profiles |- 📚 **Auto-Generated API Docs** (Swagger/ReDoc)
+
+| **Notification** | FastAPI | - | Email/SMS notifications |
+
+# Seed demo data
+
+### Frontend
+
+- **React 18** - UI librarydocker exec flighthub-user python manage.py seed_users---
+
+- **TypeScript** - Type safety
+
+- **Tailwind CSS** - Stylingdocker exec flighthub-flight-search python seed_flights.py
+
+- **shadcn/ui** - Component library
+
+- **Zustand** - State management## 🏗️ Архитектура
+
+- **React Router** - Routing
+
+# Access application
+
+### Infrastructure
+
+- **Docker & Docker Compose** - Containerization# Frontend: http://localhost:3000```
+
+- **RabbitMQ** - Message broker
+
+- **Redis** - Caching# API Gateway: http://localhost:8000                    ┌──────────────────────────┐
+
+- **Celery** - Task queue
+
+- **Nginx** - Reverse proxy# API Docs: http://localhost:8000/docs                    │   FRONTEND (React 18)    │
+
+
+
+---```                    │  Vite + Tailwind CSS     │
+
+
+
+## 📚 API Documentation                    │      Port 3000           │
+
+
+
+### Swagger UI### Demo Credentials                    └──────────┬───────────────┘
+
+Visit **http://localhost:8000/docs** after starting services
+
+                               │
+
+### Key Endpoints
+
+| Email | Password | Tier | Points |┌──────────────────────────────▼───────────────────────────────────┐
+
+#### Authentication
+
+```http|-------|----------|------|--------|│                         API GATEWAY (FastAPI)                     │
+
+POST /api/v1/users/register
+
+POST /api/v1/users/login| **demo@flighthub.com** | **Demo123!** | GOLD | 15,000 |│         JWT Auth | Rate Limiting | Circuit Breaker | CORS        │
+
+POST /api/v1/users/refresh
+
+GET  /api/v1/users/me| john.doe@example.com | Test123! | PLATINUM | 50,000 |└───────┬─────────────┬──────────────┬──────────────┬──────────────┘
+
+```
+
+| jane.smith@example.com | Test123! | SILVER | 5,000 |        │             │              │              │
+
+#### Flight Search
+
+```http   ┌────▼────┐  ┌────▼────┐   ┌────▼────┐   ┌─────▼─────┐
+
+GET /api/v1/flights/search
+
+  ?from_airport=ALA&to_airport=DXB---   │ Flight  │  │ Booking │   │ Payment │   │   User    │
+
+  &departure_date=2025-11-01
+
+  &passengers=2&cabin_class=economy   │ Search  │  │ Service │   │ Service │   │  Service  │
+
+```
+
+## ✨ Features   │(FastAPI)│  │(Django) │   │(Django) │   │ (Django)  │
+
+#### Bookings
+
+```http   └────┬────┘  └────┬────┘   └────┬────┘   └─────┬─────┘
+
+POST   /api/v1/bookings
+
+GET    /api/v1/bookings### 🔐 User Management        │            │              │              │
+
+GET    /api/v1/bookings/{id}
+
+DELETE /api/v1/bookings/{id}- Secure JWT-based authentication with refresh tokens        │            └──────┬───────┴──────────────┘
+
+```
+
+- User profile management with editable information        │                   │
+
+---
+
+- Multi-tier loyalty program (Bronze → Silver → Gold → Platinum)   ┌────▼────┐       ┌─────▼──────┐       ┌──────────────┐
+
+## 📂 Project Structure
+
+- Points accumulation and reward tracking   │ MongoDB │       │ PostgreSQL │       │ Notification │
+
+```
+
+flighthub/   │ + Redis │       │            │       │   Service    │
+
+├── frontend/                   # React 18 + TypeScript
+
+│   ├── src/### 🔍 Flight Search Engine   └─────────┘       └────────────┘       │  (FastAPI)   │
+
+│   │   ├── components/        # Reusable components
+
+│   │   ├── pages/             # Page components- Real-time search across multiple routes                                           └──────┬───────┘
+
+│   │   ├── store/             # Zustand stores
+
+│   │   └── lib/               # API client, utils- Advanced filtering (price, duration, stops, cabin class)                                                  │
+
+│   └── Dockerfile
+
+│- Smart caching with Redis for sub-second response times                                           ┌──────▼───────┐
+
+├── flighthub-api-gateway/     # FastAPI Gateway
+
+├── user-service/              # Django + JWT Auth- 300+ flights across 11 international routes                                           │   RabbitMQ   │
+
+├── flight-search-service/     # FastAPI + MongoDB
+
+├── booking-service/           # Django + Celery- Support for one-way and round-trip bookings                                           └──────────────┘
+
+├── payment-service/           # Django
+
+├── notification-service/      # FastAPI```
+
+└── docker-compose.yml         # Orchestration
+
+```### 🎫 Booking Management
+
+
+
+---- Multi-passenger booking support---
+
+
+
+## 🎯 What This Project Demonstrates- Automated PNR (Passenger Name Record) generation
+
+
+
+### Technical Skills- Booking status tracking and history## 🚀 Быстрый Старт
+
+✅ **Microservices Architecture** - Service decomposition, API design  
+
+✅ **Event-Driven Design** - RabbitMQ, async messaging  - Time-based auto-expiration (15 minutes)
+
+✅ **Modern Python** - FastAPI, Django, Celery, Pydantic  
+
+✅ **Modern Frontend** - React 18, TypeScript, Tailwind CSS  - Email confirmations and notifications### Требования
+
+✅ **Docker & DevOps** - Multi-container orchestration  
+
+✅ **Database Design** - PostgreSQL, MongoDB, Redis  - Docker Desktop (Windows/Mac) или Docker + Docker Compose (Linux)
+
+✅ **Authentication & Security** - JWT, rate limiting  
+
+✅ **API Design** - RESTful, OpenAPI/Swagger  ### 💳 Payment Processing- 8 GB RAM минимум
+
+
+
+### Applicable To- Secure payment gateway integration- 10 GB свободного места на диске
+
+- ✈️ Travel & Hospitality (Booking.com, Expedia)
+
+- 💳 Fintech (Payment systems)- Multiple payment method support
+
+- 🛒 E-commerce (Marketplaces)
+
+- 🏢 Enterprise Backend/Full-Stack positions- Transaction history and receipts### Запуск за 1 минуту
+
+
+
+---- Automated refund processing
+
+
+
+## 🧪 Testing```bash
+
+
+
+```bash### 📧 Notification System# Клонировать репозиторий
+
+# Backend tests
+
+docker exec flighthub-user python manage.py test- Real-time email notificationsgit clone <repository-url>
+
+docker exec flighthub-booking python manage.py test
 
 - Booking confirmations and updatescd flighthub
 
-- Payment receipts
+# Frontend tests
+
+cd frontend- Payment receipts
+
+npm run test
 
 - Event-driven asynchronous delivery# Запустить все сервисы
 
-docker-compose up -d
+# Check services health
+
+docker-compose psdocker-compose up -d
+
+```
+
+---
 
 ---
 
 # Проверить статус
 
+## 🚀 Deployment
+
 ## 🏗️ Architecturedocker-compose ps
 
+### Development
+
+```bash
+
+docker-compose up -d
+
+```### System Design# Открыть приложение
 
 
-### System Design# Открыть приложение
 
-start http://localhost:3000        # Frontend
+### Production Considerationsstart http://localhost:3000        # Frontend
 
-```start http://localhost:8000/docs  # API Docs (Windows)
+- Use environment-specific `.env` files
 
-                         ┌─────────────────────────┐open http://localhost:3000         # Mac
+- Enable HTTPS with SSL certificates```start http://localhost:8000/docs  # API Docs (Windows)
 
-                         │   React 18 Frontend     │```
+- Configure CORS for production domains
 
-                         │  TypeScript + Tailwind  │
+- Set up monitoring (Prometheus + Grafana)                         ┌─────────────────────────┐open http://localhost:3000         # Mac
 
-                         │      Port: 3000         │### Проверка работоспособности
+- Use managed databases (AWS RDS, MongoDB Atlas)
 
-                         └───────────┬─────────────┘
+- Implement CI/CD (GitHub Actions)                         │   React 18 Frontend     │```
 
-                                     │```bash
 
-                  ┌──────────────────▼──────────────────────┐# Frontend
+
+---                         │  TypeScript + Tailwind  │
+
+
+
+## 📊 Statistics                         │      Port: 3000         │### Проверка работоспособности
+
+
+
+- **6** Microservices                         └───────────┬─────────────┘
+
+- **14** Docker containers
+
+- **5** Demo users with loyalty tiers                                     │```bash
+
+- **317** Flights across 11 routes
+
+- **4** Databases (2 PostgreSQL, 1 MongoDB, 1 Redis)                  ┌──────────────────▼──────────────────────┐# Frontend
+
+- **1** Message broker (RabbitMQ)
 
                   │         API Gateway (FastAPI)           │curl http://localhost:3000
 
+---
+
                   │  JWT Auth • Rate Limit • Circuit Breaker│
+
+## 🤝 Contributing
 
                   │              Port: 8000                  │# Backend API Health check
 
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
                   └──────┬──────────┬──────────┬─────────────┘curl http://localhost:8000/health
 
-                         │          │          │
+1. Fork the repository
 
-           ┌─────────────▼──┐  ┌───▼─────┐  ┌▼──────────┐# Поиск рейсов
+2. Create feature branch (`git checkout -b feature/amazing-feature`)                         │          │          │
+
+3. Commit changes (`git commit -m 'feat: add amazing feature'`)
+
+4. Push to branch (`git push origin feature/amazing-feature`)           ┌─────────────▼──┐  ┌───▼─────┐  ┌▼──────────┐# Поиск рейсов
+
+5. Open Pull Request
 
            │  Flight Search │  │ Booking │  │   User    │curl "http://localhost:8000/api/v1/flights/search?from_airport=ALA&to_airport=DXB&departure_date=2025-11-01&passengers=1"
 
+---
+
            │    (FastAPI)   │  │(Django) │  │ (Django)  │```
+
+## 📄 License
 
            │   MongoDB      │  │  PG SQL │  │  PG SQL   │
 
+This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+
            └─────────┬──────┘  └───┬─────┘  └─────┬─────┘### 🎨 Доступные приложения
+
+---
 
                      │             │              │
 
+## 👨‍💻 Author
+
                      └─────┬───────┴──────────────┘- **Frontend**: http://localhost:3000 (React SPA)
+
+**Almas**
 
                            │- **API Gateway**: http://localhost:8000
 
-                    ┌──────▼───────┐      ┌──────────────┐- **API Docs**: http://localhost:8000/docs (Swagger UI)
+- GitHub: [@Almas0505](https://github.com/Almas0505)
 
-                    │   RabbitMQ   │◄─────┤ Notification │- **RabbitMQ Management**: http://localhost:15672 (admin/secret)
-
-                    │ Message Bus  │      │   Service    │```
-
-                    └──────────────┘      └──────────────┘
-
-```---
+- Repository: [FlightHub](https://github.com/Almas0505/FlightHub)                    ┌──────▼───────┐      ┌──────────────┐- **API Docs**: http://localhost:8000/docs (Swagger UI)
 
 
 
-### Communication Patterns## 📦 Компоненты Системы
+---                    │   RabbitMQ   │◄─────┤ Notification │- **RabbitMQ Management**: http://localhost:15672 (admin/secret)
 
 
 
-**Synchronous (REST):**### 1. API Gateway (Port 8000) - FastAPI
+## 🙏 Acknowledgments                    │ Message Bus  │      │   Service    │```
 
-- Client → API Gateway → Microservices**Единая точка входа для всех запросов**
 
-- Request/Response with JWT validation
+
+- [FastAPI](https://fastapi.tiangolo.com/) - Modern Python web framework                    └──────────────┘      └──────────────┘
+
+- [Django](https://www.djangoproject.com/) - High-level Python framework
+
+- [React](https://reactjs.org/) - JavaScript library for UI```---
+
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful component library
+
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+
+
+
+---### Communication Patterns## 📦 Компоненты Системы
+
+
+
+<div align="center">
+
+
+
+**⭐ Star this repo if you find it useful!****Synchronous (REST):**### 1. API Gateway (Port 8000) - FastAPI
+
+
+
+Made with ❤️ for Travel Tech Industry- Client → API Gateway → Microservices**Единая точка входа для всех запросов**
+
+
+
+</div>- Request/Response with JWT validation
+
 
 Фичи:
 
