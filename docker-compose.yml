@@ -1,0 +1,302 @@
+version: '3.8'
+
+networks:
+  flighthub:
+    driver: bridge
+
+volumes:
+  postgres_booking_data:
+  postgres_payment_data:
+  postgres_user_data:
+  mongodb_data:
+  redis_data:
+  rabbitmq_data:
+
+services:
+  # ========== INFRASTRUCTURE ==========
+  
+  # PostgreSQL (for Django services)
+  postgres:
+    image: postgres:15-alpine
+    container_name: flighthub-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_MULTIPLE_DATABASES: booking_db,payment_db,user_db
+    volumes:
+      - postgres_booking_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - flighthub
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  
+  # MongoDB (for FastAPI services)
+  mongodb:
+    image: mongo:6
+    container_name: flighthub-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - flighthub
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  # Redis (caching & rate limiting)
+  redis:
+    image: redis:7-alpine
+    container_name: flighthub-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - flighthub
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+  
+  # RabbitMQ (message broker)
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: flighthub-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: secret
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - flighthub
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  
+  # ========== MICROSERVICES ==========
+  
+  # API Gateway (Port 8000)
+  api-gateway:
+    build: ./flighthub-api-gateway
+    container_name: flighthub-api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=True
+      - REDIS_URL=redis://redis:6379
+      - FLIGHT_SEARCH_URL=http://flight-search:8001
+      - BOOKING_SERVICE_URL=http://booking-service:8002
+      - PAYMENT_SERVICE_URL=http://payment-service:8003
+      - USER_SERVICE_URL=http://user-service:8005
+      - NOTIFICATION_SERVICE_URL=http://notification-service:8004
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+  
+  # Flight Search Service (Port 8001)
+  flight-search:
+    build: ./flight-search-service
+    container_name: flighthub-flight-search
+    ports:
+      - "8001:8001"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=True
+      - MONGODB_URL=mongodb://admin:secret@mongodb:27017
+      - MONGODB_DB_NAME=flight_search
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=amqp://admin:secret@rabbitmq:5672
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+      - USE_MOCK_PROVIDER=True
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
+  
+  # Booking Service (Port 8002)
+  booking-service:
+    build: ./booking-service
+    container_name: flighthub-booking
+    ports:
+      - "8002:8002"
+    environment:
+      - DEBUG=True
+      - DB_HOST=postgres
+      - DB_NAME=booking_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=amqp://admin:secret@rabbitmq:5672
+      - RABBITMQ_URL=amqp://admin:secret@rabbitmq:5672
+      - FLIGHT_SEARCH_SERVICE_URL=http://flight-search:8001
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8002"
+  
+  # Payment Service (Port 8003)
+  payment-service:
+    build: ./payment-service
+    container_name: flighthub-payment
+    ports:
+      - "8003:8003"
+    environment:
+      - DEBUG=True
+      - DB_HOST=postgres
+      - DB_NAME=payment_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: >
+      sh -c "python manage.py makemigrations payments &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8003"
+  
+  # Notification Service (Port 8004)
+  notification-service:
+    build: ./notification-service
+    container_name: flighthub-notification
+    ports:
+      - "8004:8004"
+    environment:
+      - MONGODB_URL=mongodb://admin:secret@mongodb:27017
+      - RABBITMQ_URL=amqp://admin:secret@rabbitmq:5672
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - flighthub
+  
+  # User Service (Port 8005)
+  user-service:
+    build: ./user-service
+    container_name: flighthub-user
+    ports:
+      - "8005:8005"
+    environment:
+      - DEBUG=True
+      - DB_HOST=postgres
+      - DB_NAME=user_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - JWT_SECRET_KEY=your-secret-key-change-in-production-please-use-strong-random-key
+      - JWT_ALGORITHM=HS256
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: >
+      sh -c "python manage.py makemigrations accounts &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8005"
+  
+  # ========== BACKGROUND WORKERS ==========
+  
+  # Flight Search Celery Worker
+  flight-search-worker:
+    build: ./flight-search-service
+    container_name: flighthub-flight-search-worker
+    environment:
+      - MONGODB_URL=mongodb://admin:secret@mongodb:27017
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=amqp://admin:secret@rabbitmq:5672
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: celery -A app.tasks.celery_app worker -l info
+  
+  # Flight Search Celery Beat
+  flight-search-beat:
+    build: ./flight-search-service
+    container_name: flighthub-flight-search-beat
+    environment:
+      - MONGODB_URL=mongodb://admin:secret@mongodb:27017
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=amqp://admin:secret@rabbitmq:5672
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: celery -A app.tasks.celery_app beat -l info
+  
+  # Booking Service Celery Worker
+  booking-worker:
+    build: ./booking-service
+    container_name: flighthub-booking-worker
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=booking_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - CELERY_BROKER_URL=amqp://admin:secret@rabbitmq:5672
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - flighthub
+    command: celery -A booking_service worker -l info
+  
+  # ========== FRONTEND ==========
+  
+  # Frontend (Port 3000)
+  frontend:
+    build: ./frontend
+    container_name: flighthub-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api-gateway
+    networks:
+      - flighthub
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000

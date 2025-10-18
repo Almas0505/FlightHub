@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+  
+  user-service:
+    build: .
+    ports:
+      - "8005:8005"
+    environment:
+      - DB_HOST=postgres
+    depends_on:
+      - postgres
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8005"

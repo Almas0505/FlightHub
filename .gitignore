@@ -1,0 +1,131 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+
+# FastAPI
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnp
+.pnp.js
+
+# React / Vite
+dist/
+dist-ssr/
+.vite/
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker
+.dockerignore
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+.nyc_output/
+
+# Secrets
+secrets/
+*.pem
+*.key
+*.cert
+
+# Documentation temporary files
+CHEATSHEET.md
+DEPLOYMENT_GUIDE.md
+DOCKER_STATUS.md
+FINAL_SUMMARY.md
+FRONTEND_CREATED.md
+FRONTEND_PROMPT.md
+FRONTEND_REQUEST.md
+FRONTEND_SUMMARY.md
+INSTALLATION_ISSUES.md
+PROJECT_AUDIT_REPORT.md
+QUICK_START.md
+RUNNING_STATUS.md
+START_HERE.md
+start.ps1
+SUCCESS_REPORT.md
+SUMMARY.md
+TODO_IMPROVEMENTS.md
+quick-start.ps1

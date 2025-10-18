@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: booking_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+  
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: secret
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  booking-service:
+    build: .
+    ports:
+      - "8002:8002"
+    environment:
+      - DB_HOST=postgres
+      - REDIS_URL=redis://redis:6379
+      - CELERY_BROKER_URL=amqp://admin:secret@rabbitmq:5672
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8002"
+
+volumes:
+  postgres_data:
